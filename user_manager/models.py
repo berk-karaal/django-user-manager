@@ -6,6 +6,8 @@ from django.contrib.auth.models import (
 )
 from django.conf import settings
 
+from .validators import validate_email_domain
+
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None):
@@ -35,7 +37,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True, validators=[validate_email_domain])
     USERNAME_FIELD = "email"  # set as identifier
 
     is_active = models.BooleanField(default=settings.USERS_ACTIVE_BY_DEFAULT)

@@ -127,3 +127,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 USERS_ACTIVE_BY_DEFAULT = True
 
 AUTH_USER_MODEL = "user_manager.User"
+
+ALLOWED_EMAIL_DOMAINS = "*"  # list should be like ["example.com", "name.gov.tr"]
