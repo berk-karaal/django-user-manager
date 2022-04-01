@@ -125,3 +125,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Additional fields
 USERS_ACTIVE_BY_DEFAULT = True
+
+AUTH_USER_MODEL = "user_manager.User"
