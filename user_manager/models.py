@@ -48,4 +48,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     def __str__(self) -> str:
-        return self.email
+        return f"{self.email}"
+
+    def save(self, *args, **kwargs):
+        """
+        check again email address, for make sure field validation passed
+        """
+        validate_email_domain(self.email)
+        
+        super().save(*args, **kwargs)
