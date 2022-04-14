@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "user_manager",
+    "user",
 ]
 
 MIDDLEWARE = [
@@ -126,6 +126,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Additional fields
 USERS_ACTIVE_BY_DEFAULT = True
 
-AUTH_USER_MODEL = "user_manager.User"
+AUTH_USER_MODEL = "user.User"
 
-ALLOWED_EMAIL_DOMAINS = "*"  # list should be like ["example.com", "name.gov.tr"]
+# Checks user's email address is in the list while saving:
+# list should be like ["example.com", "name.gov.tr"]
+ALLOWED_EMAIL_DOMAINS = "*"
